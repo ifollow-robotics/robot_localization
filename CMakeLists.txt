@@ -67,6 +67,7 @@ add_service_files(
     ToggleFilterProcessing.srv
     FromLL.srv
     ToLL.srv
+    ToggleSrc.srv
 )
 
 generate_messages(
@@ -79,7 +80,7 @@ generate_messages(
 catkin_package(
   INCLUDE_DIRS
     include
-  LIBRARIES 
+  LIBRARIES
     ekf
     ekf_localization_nodelet
     filter_base

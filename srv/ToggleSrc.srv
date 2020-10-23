@@ -1,0 +1,4 @@
+string source
+bool on
+---
+bool status

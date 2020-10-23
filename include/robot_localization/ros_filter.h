@@ -39,6 +39,7 @@
 
 #include <robot_localization/SetPose.h>
 #include <robot_localization/ToggleFilterProcessing.h>
+#include <robot_localization/ToggleSrc.h>
 
 #include <ros/ros.h>
 #include <std_msgs/String.h>
@@ -285,6 +286,10 @@ template<class T> class RosFilter
     //! @return true if the filter output is valid, false otherwise
     //!
     bool validateFilterOutput(const nav_msgs::Odometry &message);
+
+
+    bool toggleSourceCallback(robot_localization::ToggleSrc::Request&,
+                              robot_localization::ToggleSrc::Response&);
 
   protected:
     //! @brief Finds the latest filter state before the given timestamp and makes it the current state again.
@@ -719,6 +724,8 @@ template<class T> class RosFilter
     //! @brief optional signaling diagnostic frequency
     //!
     std::unique_ptr<diagnostic_updater::HeaderlessTopicDiagnostic> freqDiag_;
+
+    std::map<std::string, bool> isSrcEnabled_;
 };
 
 }  // namespace RobotLocalization
