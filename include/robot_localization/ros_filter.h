@@ -700,6 +700,8 @@ template<class T> class RosFilter
     //!
     ros::ServiceServer enableFilterSrv_;
 
+    ros::ServiceServer enableSrcSrv_;
+
     //! @brief Service that allows another node to change the current state and recieve a confirmation. Uses
     //! a custom SetPose service.
     //!

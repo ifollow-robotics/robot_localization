@@ -1035,6 +1035,8 @@ void RosFilter<T>::loadParams()
     // Create a service for manually enabling the filter
     enableFilterSrv_ = nhLocal_.advertiseService("enable", &RosFilter<T>::enableFilterSrvCallback, this);
 
+    enableSrcSrv_ = nhLocal_.advertiseService("toggle_source", &RosFilter<T>::toggleSourceCallback, this);
+
     // Create a service for toggling processing new measurements while still publishing
     toggleFilterProcessingSrv_ =
         nhLocal_.advertiseService("toggle", &RosFilter<T>::toggleFilterProcessingCallback, this);
